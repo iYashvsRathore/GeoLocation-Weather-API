@@ -24,9 +24,6 @@ namespace WeatherAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<WeatherForecastDTO>> Get([FromQuery] RequestDTO request)
         {
-            //request.StartDate = "2024-05-06";
-            //request.EndDate = "2024-05-08";
-
             var response = await _weatherService.GetWeatherForecast(request).ConfigureAwait(false);
 
             if(response.Success)
