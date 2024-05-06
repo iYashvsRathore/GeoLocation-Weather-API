@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Title>Geo Location based Weather API</Title>
+    <Authors>$(AssemblyName), Yash Rathore</Authors>
+    <Company>$(Authors), Yash Rathore LLP</Company>
+    <PackageIcon>1682517866_logo_square.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Yash Rathore\Downloads\1682517866_logo_square.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+</Project>
