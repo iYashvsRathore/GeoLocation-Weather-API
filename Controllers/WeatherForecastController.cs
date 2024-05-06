@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WeatherAPI.Interfaces;
 using WeatherAPI.Models;
 
@@ -24,6 +25,7 @@ namespace WeatherAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<WeatherForecastDTO>> Get([FromQuery] RequestDTO request)
         {
+            _logger.LogInformation($"Request Body: {JsonConvert.SerializeObject(request)}");
             var response = await _weatherService.GetWeatherForecast(request).ConfigureAwait(false);
 
             if(response.Success)

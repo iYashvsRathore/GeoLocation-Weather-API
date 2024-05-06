@@ -15,6 +15,7 @@ namespace WeatherAPI.Services
         }
         public async Task<LocationDTO> GetLocationDetails(string locationQuery)
         {
+            _logger.LogInformation($"Get Location details from the Azure Map Location service");
             var locationResponse = await _httpClient.GetLocation(locationQuery).ConfigureAwait(false);
 
             if (locationResponse.IsSuccessStatusCode)
@@ -31,7 +32,11 @@ namespace WeatherAPI.Services
             }
         }
 
-        public Position GetCoordinates(LocationDTO locationDTO) => locationDTO?.Data?.Results?.FirstOrDefault()?.Position ?? new Position() { Lat = 0.00f, Lon = 0.00f };
+        public Position GetCoordinates(LocationDTO locationDTO) 
+        {
+            _logger.LogInformation($"Getting Co-ordinates from the Location data");
+            return locationDTO?.Data?.Results?.FirstOrDefault()?.Position ?? new Position() { Lat = 0.00f, Lon = 0.00f };
+        }
 
     }
 }
